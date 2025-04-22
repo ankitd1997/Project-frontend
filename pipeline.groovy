@@ -9,7 +9,7 @@ pipeline {
         stage('code-build'){
             steps {
                 sh '''
-                    npm build
+                    npm install
                     ng build
                 '''
             }
