@@ -2,12 +2,12 @@ pipeline {
     agent any 
     stages{
         stage('code-pull'){
-            step{
+            steps {
                 git branch: 'dev', url: 'https://github.com/mayurmwagh/Project-frontend.git'
             }
         }
         stage('code-build'){
-            step{
+            steps {
                 sh '''
                     npm build
                     ng build
@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('code-deploy'){
-            step{
+            steps {
                 sh '''
                     aws s3 cp --recursive dist/angular-frontend s3://cbz-frontend-project-bux123-king/
                 '''
